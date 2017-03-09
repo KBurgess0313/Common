@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Types">
+      <UniqueIdentifier>{ae3c2de2-ca37-4352-81a6-57b90d3ba8ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Types">
+      <UniqueIdentifier>{a8c23d55-8515-466e-93a0-24c5a1f8e7d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GeneratedFiles">
+      <UniqueIdentifier>{039c990b-4510-45a5-b73b-7710f4a0377e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GeneratedFiles\Debug">
+      <UniqueIdentifier>{370f5206-c0d0-4593-aaaf-831438c80ae0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GeneratedFiles\Release">
+      <UniqueIdentifier>{93fe4c80-da94-46ed-b89a-f87ce9dd86c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Comms">
+      <UniqueIdentifier>{66eb4fb8-e47e-4276-a02b-7f04875d68c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Comms">
+      <UniqueIdentifier>{b53ea6ce-31fd-4eea-b9bd-3b7c5387bdc8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Comms\Messages">
+      <UniqueIdentifier>{a90355f6-f646-428d-8de3-7b0e8ccda7ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Comms\Messages">
+      <UniqueIdentifier>{c6f58674-fbaa-4ff9-83c4-312914a58ec5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\Common\Types\Account.h">
+      <Filter>Header Files\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Common\Types\Types.h">
+      <Filter>Header Files\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Common\Comms\Messages\LoginMessage.h">
+      <Filter>Header Files\Comms\Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Common\Comms\Messages\Header.h">
+      <Filter>Header Files\Comms\Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Common\Comms\Messages\Parser.h">
+      <Filter>Header Files\Comms\Messages</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\Common\Types\Account.cpp">
+      <Filter>Source Files\Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Common\Types\CameraFeed.cpp">
+      <Filter>Source Files\Types</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_CameraFeed.cpp">
+      <Filter>GeneratedFiles\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_CameraFeed.cpp">
+      <Filter>GeneratedFiles\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Common\Comms\Messages\LoginMessage.cpp">
+      <Filter>Source Files\Comms\Messages</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Common\Comms\Messages\Parser.cpp">
+      <Filter>Source Files\Comms\Messages</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Common\Comms\Messages\Header.cpp">
+      <Filter>Source Files\Comms\Messages</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\include\Common\Types\CameraFeed.h">
+      <Filter>Header Files\Types</Filter>
+    </CustomBuild>
+  </ItemGroup>
+</Project>
