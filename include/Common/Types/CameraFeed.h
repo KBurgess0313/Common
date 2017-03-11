@@ -20,11 +20,14 @@ namespace Types {
     Q_OBJECT;
 
   public:
-    CameraFeed(const std::string& aCameraLogin,
+    CameraFeed(const std::string& aCameraName, 
+               const std::string& aCameraLogin,
                const std::string& aCameraPass,
                const std::string& aCameraIp);
 
     CameraFeed(const boost::property_tree::ptree::value_type& cameraTree);
+
+    std::string getName();
 
     void init();
     void terminate();
@@ -41,7 +44,7 @@ namespace Types {
 
   private:
     bool mCameraActive;
-
+    std::string mName;
     cv::VideoCapture mVideoStream;
     std::thread mWorkerThread;
   };

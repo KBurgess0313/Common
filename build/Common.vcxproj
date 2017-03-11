@@ -11,9 +11,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\include\Common\Comms\Messages\Header.h" />
-    <ClInclude Include="..\include\Common\Comms\Messages\LoginMessage.h" />
-    <ClInclude Include="..\include\Common\Comms\Messages\Parser.h" />
+    <ClInclude Include="..\include\Common\Interfaces\Messages\BaseMessage.h" />
+    <ClInclude Include="..\include\Common\Interfaces\Messages\LoginMessage.h" />
+    <ClInclude Include="..\include\Common\Interfaces\Messages\Types.h" />
+    <ClInclude Include="..\include\Common\Interfaces\TcpRestClient.h" />
+    <ClInclude Include="..\include\Common\Interfaces\TcpRestServer.h" />
     <ClInclude Include="..\include\Common\Types\Account.h" />
     <ClInclude Include="..\include\Common\Types\Types.h" />
     <CustomBuild Include="..\include\Common\Types\CameraFeed.h">
@@ -28,9 +30,10 @@
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\src\Common\Comms\Messages\Header.cpp" />
-    <ClCompile Include="..\src\Common\Comms\Messages\LoginMessage.cpp" />
-    <ClCompile Include="..\src\Common\Comms\Messages\Parser.cpp" />
+    <ClCompile Include="..\src\Common\Interfaces\Messages\LoginMessage.cpp" />
+    <ClCompile Include="..\src\Common\Interfaces\Messages\BaseMessage.cpp" />
+    <ClCompile Include="..\src\Common\Interfaces\TcpRestClient.cpp" />
+    <ClCompile Include="..\src\Common\Interfaces\TcpRestServer.cpp" />
     <ClCompile Include="..\src\Common\Types\Account.cpp" />
     <ClCompile Include="..\src\Common\Types\CameraFeed.cpp" />
     <ClCompile Include="GeneratedFiles\Debug\moc_CameraFeed.cpp" />
@@ -78,7 +81,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(ProjectDir)\..\include;$(Dependencies)\windows\boost_1_63_0\;$(Dependencies)\windows\opencv\build\include\;$(QTDIR)\include;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtWidgets</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)\..\include;$(Dependencies)\windows\boost_1_63_0\;$(Dependencies)\windows\opencv\build\include\;$(QTDIR)\include;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtWidgets;$(Dependencies)\windows\cpprestsdk\Release\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -93,7 +96,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>..\include;$(Dependencies)\windows\boost_1_63_0\;$(Dependencies)\windows\opencv\build\include\;$(QTDIR)\include;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtWidgets</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\include;$(Dependencies)\windows\boost_1_63_0\;$(Dependencies)\windows\opencv\build\include\;$(QTDIR)\include;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtWidgets;$(Dependencies)\windows\cpprestsdk\Release\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>

@@ -28,17 +28,20 @@
     <Filter Include="GeneratedFiles\Release">
       <UniqueIdentifier>{93fe4c80-da94-46ed-b89a-f87ce9dd86c9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Comms">
+    <Filter Include="Header Files\Interfaces">
       <UniqueIdentifier>{66eb4fb8-e47e-4276-a02b-7f04875d68c1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Comms">
-      <UniqueIdentifier>{b53ea6ce-31fd-4eea-b9bd-3b7c5387bdc8}</UniqueIdentifier>
+    <Filter Include="Source Files\Interfaces">
+      <UniqueIdentifier>{653f64ce-a93c-4a76-8db3-0d262cdff558}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Comms\Messages">
-      <UniqueIdentifier>{a90355f6-f646-428d-8de3-7b0e8ccda7ad}</UniqueIdentifier>
+    <Filter Include="Header Files\Interfaces\Messages">
+      <UniqueIdentifier>{b0fbdbe9-5d06-4728-9de3-0f3f1308e5cb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Comms\Messages">
-      <UniqueIdentifier>{c6f58674-fbaa-4ff9-83c4-312914a58ec5}</UniqueIdentifier>
+    <Filter Include="Source Files\Interfaces\Messages">
+      <UniqueIdentifier>{ee54aa81-d664-41c2-8f95-9d8aaba99291}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\TcpSession">
+      <UniqueIdentifier>{4b649e3c-1487-4aed-b9f7-3520bdbb222e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -48,14 +51,20 @@
     <ClInclude Include="..\include\Common\Types\Types.h">
       <Filter>Header Files\Types</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\Common\Comms\Messages\LoginMessage.h">
-      <Filter>Header Files\Comms\Messages</Filter>
+    <ClInclude Include="..\include\Common\Interfaces\TcpRestServer.h">
+      <Filter>Header Files\Interfaces</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\Common\Comms\Messages\Header.h">
-      <Filter>Header Files\Comms\Messages</Filter>
+    <ClInclude Include="..\include\Common\Interfaces\Messages\LoginMessage.h">
+      <Filter>Header Files\Interfaces\Messages</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\Common\Comms\Messages\Parser.h">
-      <Filter>Header Files\Comms\Messages</Filter>
+    <ClInclude Include="..\include\Common\Interfaces\TcpRestClient.h">
+      <Filter>Header Files\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Common\Interfaces\Messages\Types.h">
+      <Filter>Header Files\Interfaces\Messages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Common\Interfaces\Messages\BaseMessage.h">
+      <Filter>Header Files\Interfaces\Messages</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -71,14 +80,17 @@
     <ClCompile Include="GeneratedFiles\Release\moc_CameraFeed.cpp">
       <Filter>GeneratedFiles\Release</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\Common\Comms\Messages\LoginMessage.cpp">
-      <Filter>Source Files\Comms\Messages</Filter>
+    <ClCompile Include="..\src\Common\Interfaces\Messages\LoginMessage.cpp">
+      <Filter>Source Files\Interfaces\Messages</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\Common\Comms\Messages\Parser.cpp">
-      <Filter>Source Files\Comms\Messages</Filter>
+    <ClCompile Include="..\src\Common\Interfaces\TcpRestServer.cpp">
+      <Filter>Source Files\Interfaces</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\Common\Comms\Messages\Header.cpp">
-      <Filter>Source Files\Comms\Messages</Filter>
+    <ClCompile Include="..\src\Common\Interfaces\TcpRestClient.cpp">
+      <Filter>Source Files\Interfaces</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Common\Interfaces\Messages\BaseMessage.cpp">
+      <Filter>Source Files\Interfaces\Messages</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

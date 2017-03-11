@@ -58,24 +58,27 @@ namespace Types {
   {
   }
 
-  Account::Account(const boost::property_tree::ptree::value_type& accountTree)
+  Account::Account(const boost::property_tree::ptree::value_type& accountTree) :
+    mFirstName(accountTree.second.get<std::string>("FirstName")),
+    mLastName(accountTree.second.get<std::string>("LastName")),
+    mLogin(accountTree.second.get<std::string>("Login")),
+    mPassword(accountTree.second.get<std::string>("Passwd")),
+    mAccountPrivelages(Privelages::fromString(accountTree.second.get<std::string>("Privelages"))),
+    mPictures(std::vector<std::string>())
   {
-    Account(accountTree.second.get<std::string>("FirstName"),
-            accountTree.second.get<std::string>("LastName"),
-            accountTree.second.get<std::string>("Login"),
-            accountTree.second.get<std::string>("Passwd"),
-            static_cast<Privelages::Type>(accountTree.second.get<int>("Privelages")),
-            std::vector<std::string>());
   }
 
+  Account::Account()
+  {
 
+  }
   bp::ptree Account::toXml()
   {
     return bp::ptree();
   }
 
   bool Account::isValidLogin(const std::string aLogin,
-                    const std::string aPass)
+                             const std::string aPass)
   {
     return ((mLogin == aLogin) && (mPassword == aPass));
   }

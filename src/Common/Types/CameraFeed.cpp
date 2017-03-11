@@ -3,23 +3,28 @@
 namespace Common {
 namespace Types {
 
-  CameraFeed::CameraFeed(const std::string& aCameraLogin,
+  CameraFeed::CameraFeed(const std::string& aCameraName,
+                         const std::string& aCameraLogin,
                          const std::string& aCameraPass,
                          const std::string& aCameraIp) :
     QWidget(),
+    mName(aCameraName),
     mCameraActive(false),
     mVideoStream(cv::VideoCapture(constructTargetString(aCameraLogin, aCameraPass, aCameraIp)))
   {
   }
 
-  CameraFeed::CameraFeed(const boost::property_tree::ptree::value_type& cameraTree)
+  CameraFeed::CameraFeed(const boost::property_tree::ptree::value_type& cameraTree) :
+    QWidget()
   {
+    std::string name = "";
     std::string login = "";
     std::string pass = "";
     std::string ip = "";
 
     try
     {
+      name = cameraTree.second.get<std::string>("Name");
       login = cameraTree.second.get<std::string>("Login");
       pass  = cameraTree.second.get<std::string>("Passwd");
       ip    = cameraTree.second.get<std::string>("IpAddr");
@@ -29,7 +34,9 @@ namespace Types {
       std::cout << "Handled error: " << e.what() << "\n";
     }
 
-    CameraFeed(login, pass, ip);
+    mName = name; 
+    mCameraActive = false;
+    mVideoStream = cv::VideoCapture(constructTargetString(login, pass, ip));
   }
 
   void CameraFeed::init()
@@ -50,6 +57,10 @@ namespace Types {
     mWorkerThread.join();
   }
 
+  std::string CameraFeed::getName()
+  {
+    return mName;
+  }
   std::string CameraFeed::constructTargetString(const std::string& aCameraLogin,
                                                 const std::string& aCameraPass,
                                                 const std::string& aCameraIp)

@@ -26,16 +26,9 @@ namespace Types {
 
   } //namespace Privelages
 
-  //Forward Declare & Typedefs.
-  struct Account;
-
-  typedef boost::shared_ptr<Account> AccountPtr;
-  typedef std::vector<AccountPtr> AccountPtrList;
-
   struct Account
   {
   public:
-
     Account(const std::string& aFirstName,
             const std::string& aLastName,
             const std::string& aLogin,
@@ -44,6 +37,7 @@ namespace Types {
             std::vector<std::string> aPictures);
 
     Account(const bp::ptree::value_type& accountTree);
+    Account();
 
     bp::ptree toXml();
 
@@ -59,9 +53,10 @@ namespace Types {
     Privelages::Type mAccountPrivelages;
 
     std::vector<std::string> mPictures;
-
-    Account();
   };
+
+  typedef std::vector<Account> AccountList;
+
 } //namespace Types
 } //namespace Common
 #endif // ACCOUNTS_HPP
