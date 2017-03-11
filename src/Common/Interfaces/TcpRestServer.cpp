@@ -15,22 +15,22 @@ namespace Interfaces {
 
   {
     m_listener.support(web::http::methods::GET,
-      std::tr1::bind(&TcpRestServer::handle_get,
+      std::bind(&TcpRestServer::handle_get,
         this,
-        std::tr1::placeholders::_1));
+        std::placeholders::_1));
     m_listener.support(web::http::methods::CONNECT,
-      std::tr1::bind(&TcpRestServer::handle_connect,
+      std::bind(&TcpRestServer::handle_connect,
         this,
-        std::tr1::placeholders::_1));
+        std::placeholders::_1));
     m_listener.support(web::http::methods::POST,
-      std::tr1::bind(&TcpRestServer::handle_post,
+      std::bind(&TcpRestServer::handle_post,
         this,
-        std::tr1::placeholders::_1));
+        std::placeholders::_1));
 
     m_listener.support(web::http::methods::DEL,
-      std::tr1::bind(&TcpRestServer::handle_delete,
+      std::bind(&TcpRestServer::handle_delete,
         this,
-        std::tr1::placeholders::_1));
+        std::placeholders::_1));
   }
 
   void TcpRestServer::handle_get(web::http::http_request aRequest)
