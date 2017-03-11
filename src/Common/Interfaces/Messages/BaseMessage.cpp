@@ -1,8 +1,8 @@
-#include "Common\Interfaces\Messages\BaseMessage.h"
+#include "Common/Interfaces/Messages/BaseMessage.h"
 
 #include <ostream>
 
-#include <boost\property_tree\xml_parser.hpp>
+#include <boost/property_tree/xml_parser.hpp>
 
 namespace Common {
 namespace Interfaces {

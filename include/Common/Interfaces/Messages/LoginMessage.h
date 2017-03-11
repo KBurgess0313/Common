@@ -1,9 +1,9 @@
 #ifndef COMMON_COMMS_MESSAGES_LOGIN_H
 #define COMMON_COMMS_MESSAGES_LOGIN_H
 
-#include "Common\Interfaces\Messages\BaseMessage.h"
+#include "Common/Interfaces/Messages/BaseMessage.h"
 
-#include <boost\property_tree\ptree.hpp>
+#include <boost/property_tree/ptree.hpp>
 
 #include <string>
 

@@ -40,9 +40,6 @@
     <Filter Include="Source Files\Interfaces\Messages">
       <UniqueIdentifier>{ee54aa81-d664-41c2-8f95-9d8aaba99291}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\TcpSession">
-      <UniqueIdentifier>{4b649e3c-1487-4aed-b9f7-3520bdbb222e}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\Common\Types\Account.h">

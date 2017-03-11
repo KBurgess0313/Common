@@ -1,7 +1,7 @@
-#include "Common\Interfaces\Messages\LoginMessage.h"
+#include "Common/Interfaces/Messages/LoginMessage.h"
 
-#include <boost\property_tree\ptree.hpp>
-#include <boost\property_tree\xml_parser.hpp>
+#include <boost/property_tree/ptree.hpp>
+#include <boost/property_tree/xml_parser.hpp>
 
 #include <string>
 

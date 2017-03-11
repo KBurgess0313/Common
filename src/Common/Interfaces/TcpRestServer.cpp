@@ -1,9 +1,9 @@
-#include "Common\Interfaces\TcpRestServer.h"
-#include "Common\Interfaces\Messages\Types.h"
-#include "Common\Types\Types.h"
+#include "Common/Interfaces/TcpRestServer.h"
+#include "Common/Interfaces/Messages/Types.h"
+#include "Common/Types/Types.h"
 
-#include <boost\property_tree\ptree.hpp>
-#include <boost\property_tree\xml_parser.hpp>
+#include <boost/property_tree/ptree.hpp>
+#include <boost/property_tree/xml_parser.hpp>
 
 #include <string>
 

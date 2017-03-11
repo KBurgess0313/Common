@@ -1,7 +1,7 @@
 #ifndef COMMON_INTERFACES_TCPRESTCLIENT_H
 #define COMMON_INTERFACES_TCPRESTCLIENT_H
 
-#include <cpprest\http_client.h>
+#include <cpprest/http_client.h>
 
 namespace Common {
 namespace Interfaces {

@@ -1,7 +1,8 @@
 #ifndef COMMON_TYPES_H
 #define COMMON_TYPES_H
 
-#include <boost\cstdint.hpp>
+#include <boost/cstdint.hpp>
+
 #include <cstring>
 #include <string>
 
