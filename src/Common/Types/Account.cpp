@@ -1,4 +1,4 @@
-#include "Common\Types\Account.h"
+#include "Common/Types/Account.h"
 
 #include <iostream>
 
