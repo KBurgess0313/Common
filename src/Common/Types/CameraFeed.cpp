@@ -1,5 +1,10 @@
 #include "Common/Types/CameraFeed.h"
 
+#include <opencv2/highgui.hpp>
+#include <opencv2/core/core.hpp>
+
+#include <chrono>
+
 namespace Common {
 namespace Types {
 
@@ -7,36 +12,31 @@ namespace Types {
                          const std::string& aCameraLogin,
                          const std::string& aCameraPass,
                          const std::string& aCameraIp) :
-    QWidget(),
     mName(aCameraName),
+    mLogin(aCameraLogin),
+    mPasswd(aCameraPass),
+    mIpAddr(aCameraIp),
     mCameraActive(false),
-    mVideoStream(cv::VideoCapture(constructTargetString(aCameraLogin, aCameraPass, aCameraIp)))
+    mVideoStream(cv::VideoCapture(constructTargetString()))
   {
   }
 
-  CameraFeed::CameraFeed(const boost::property_tree::ptree::value_type& cameraTree) :
-    QWidget()
+  CameraFeed::CameraFeed(const boost::property_tree::ptree& cameraTree)
   {
-    std::string name = "";
-    std::string login = "";
-    std::string pass = "";
-    std::string ip = "";
-
     try
     {
-      name = cameraTree.second.get<std::string>("Name");
-      login = cameraTree.second.get<std::string>("Login");
-      pass  = cameraTree.second.get<std::string>("Passwd");
-      ip    = cameraTree.second.get<std::string>("IpAddr");
+      mName   = cameraTree.get<std::string>("Name");
+      mLogin  = cameraTree.get<std::string>("Login");
+      mPasswd = cameraTree.get<std::string>("Passwd");
+      mIpAddr = cameraTree.get<std::string>("IpAddr");
     }
     catch(std::exception e)
     {
       std::cout << "Handled error: " << e.what() << "\n";
     }
 
-    mName = name; 
     mCameraActive = false;
-    mVideoStream = cv::VideoCapture(constructTargetString(login, pass, ip));
+    mVideoStream = cv::VideoCapture(constructTargetString());
   }
 
   void CameraFeed::init()
@@ -46,6 +46,10 @@ namespace Types {
     if(mVideoStream.isOpened())
     {
       std::cout << "Stream opened\n";
+
+      mVideoStream.set(CV_CAP_PROP_FRAME_WIDTH, static_cast<double>(640));
+      std::cout << "Width2: " << mVideoStream.get(CV_CAP_PROP_FRAME_WIDTH) << "\n";
+      std::cout << "Height: " << mVideoStream.get(CV_CAP_PROP_FRAME_HEIGHT) << "\n";
 
       mWorkerThread = std::thread(&CameraFeed::runCamera, this);
     }
@@ -61,35 +65,47 @@ namespace Types {
   {
     return mName;
   }
-  std::string CameraFeed::constructTargetString(const std::string& aCameraLogin,
-                                                const std::string& aCameraPass,
-                                                const std::string& aCameraIp)
-  {
-    std::string target = "rtsp://" + aCameraLogin + ":" + aCameraPass + "@" + aCameraIp + "/live/ch0";
 
-    std::cout << "Target string: \n" << target << "\n";
+  std::string CameraFeed::getLogin()
+  {
+    return mLogin;
+  }
+
+  std::string CameraFeed::getPasswd()
+  {
+    return mPasswd;
+  }
+
+  std::string CameraFeed::getIpAddr()
+  {
+    return mIpAddr;
+  }
+
+  std::string CameraFeed::constructTargetString()
+  {
+    std::string target = "rtsp://" + mLogin + ":" + mPasswd + "@" + mIpAddr + "/live/ch0";
+
     return target;
   }
 
   void CameraFeed::runCamera()
   {
     cv::Mat frame;
-    cv::Mat colorFrame;
+ //   cv::Mat colorFrame;
+
+    cv::namedWindow(mName);
+
+    clock_t begin = clock();
+
+    int time = 5;
+    int frameCount = 0;
 
     while(mVideoStream.read(frame))
     {
-      cv::cvtColor(frame, colorFrame, cv::COLOR_BGR2RGB);
+     // cv::cvtColor(frame, colorFrame, cv::COLOR_BGR2RGB);
 
-      QImage img = QImage((unsigned char*)colorFrame.data, 
-                                          colorFrame.cols, 
-                                          colorFrame.rows, 
-                                          QImage::Format_RGB888);
-
-      QPixmap newFrame = QPixmap::fromImage(img);
-
-      emit cameraFrame(newFrame);
-
-      cv::waitKey(30);
+      cv::imshow(mName, frame);
+      cv::waitKey(10);
     }
   }
 

@@ -1,6 +1,8 @@
 #ifndef COMMON_ACCOUNTS_HPP
 #define COMMON_ACCOUNTS_HPP
 
+#include "Common/Interfaces/Messages/LoginMessage.h"
+
 #include <string.h>
 #include <vector>
 
@@ -41,8 +43,9 @@ namespace Types {
 
     bp::ptree toXml();
 
-    bool isValidLogin(const std::string aLogin,
-                      const std::string aPass);
+    Privelages::Type getPrivelages();
+
+    bool isLogin(Common::Interfaces::Messages::LoginMessage& aLogin);
 
   private:
     std::string mFirstName;
@@ -50,12 +53,13 @@ namespace Types {
     std::string mLogin;
     std::string mPassword;
 
-    Privelages::Type mAccountPrivelages;
+    Privelages::Type mPrivelages;
 
     std::vector<std::string> mPictures;
   };
 
-  typedef std::vector<Account> AccountList;
+  typedef std::shared_ptr<Account> AccountPtr;
+  typedef std::vector<AccountPtr> AccountPtrList;
 
 } //namespace Types
 } //namespace Common

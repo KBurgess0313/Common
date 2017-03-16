@@ -15,9 +15,8 @@
 namespace Common {
 namespace Types {
 
-  class CameraFeed : public QWidget
+  class CameraFeed
   {
-    Q_OBJECT;
 
   public:
     CameraFeed(const std::string& aCameraName, 
@@ -25,31 +24,34 @@ namespace Types {
                const std::string& aCameraPass,
                const std::string& aCameraIp);
 
-    CameraFeed(const boost::property_tree::ptree::value_type& cameraTree);
-
-    std::string getName();
+    CameraFeed(const boost::property_tree::ptree& cameraTree);
 
     void init();
     void terminate();
 
-  signals:
-    void cameraFrame(const QPixmap& aFrame);
+    std::string getName();
+    std::string getLogin();
+    std::string getPasswd();
+    std::string getIpAddr();
 
   private:
-    std::string constructTargetString(const std::string& aCameraLogin,
-                                      const std::string& aCameraPass,
-                                      const std::string& aCameraIp);
+    std::string constructTargetString();
 
     void runCamera();
 
   private:
-    bool mCameraActive;
     std::string mName;
+    std::string mLogin;
+    std::string mPasswd;
+    std::string mIpAddr;
+
+    bool mCameraActive;
+
     cv::VideoCapture mVideoStream;
     std::thread mWorkerThread;
   };
 
-  typedef boost::shared_ptr<CameraFeed> CameraFeedPtr;
+  typedef std::shared_ptr<CameraFeed> CameraFeedPtr;
   typedef std::vector<CameraFeedPtr> CameraFeedPtrList;
 
 } //namespace Types

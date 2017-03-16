@@ -24,7 +24,8 @@ namespace Messages {
 
     boost::property_tree::write_xml(out, mMessage);
 
-    return out.str();
+    std::string temp = out.str();
+    return temp;
   }
 } //namespace Messages
 } //namespace Interfaces

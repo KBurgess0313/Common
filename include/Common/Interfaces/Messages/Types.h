@@ -12,50 +12,13 @@ namespace Types {
   {
     INVALID = 0,
     LOGIN,
-    ACCOUNTS,
-    CAMERAS
+    ACCOUNT,
+    CAMERA
   };
 
-  std::string toString(const Value aType)
-  {
-    std::string out = "Invalid";
+  std::string toString(const Value aType);
 
-    switch (aType)
-    {
-    case LOGIN:
-      out = "Login";
-      break;
-    case ACCOUNTS:
-      out = "Accounts";
-      break;
-    case CAMERAS:
-      out = "Cameras";
-      break;
-    default:
-      out = "Invalid";
-    }
-
-    return out;
-  }
-
-  Value fromString(const std::string& aType)
-  {
-    Value out = INVALID;
-    if (aType == "Login")
-    {
-      out = LOGIN;
-    }
-    else if (aType == "Accounts")
-    {
-      out = ACCOUNTS;
-    }
-    else if (aType == "Cameras")
-    {
-      out = CAMERAS;
-    }
-
-    return out;
-  }
+  Value fromString(const std::string& aType);
 
 } //end namespace Types
 } //end namespace Messages

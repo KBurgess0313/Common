@@ -53,7 +53,7 @@ namespace Types {
       mLastName(aLastName),
       mLogin(aLogin),
       mPassword(aPassword),
-      mAccountPrivelages(aPrivelages),
+      mPrivelages(aPrivelages),
       mPictures(aPictures)
   {
   }
@@ -63,24 +63,33 @@ namespace Types {
     mLastName(accountTree.second.get<std::string>("LastName")),
     mLogin(accountTree.second.get<std::string>("Login")),
     mPassword(accountTree.second.get<std::string>("Passwd")),
-    mAccountPrivelages(Privelages::fromString(accountTree.second.get<std::string>("Privelages"))),
+    mPrivelages(Privelages::fromString(accountTree.second.get<std::string>("Privelages"))),
     mPictures(std::vector<std::string>())
   {
   }
 
   Account::Account()
   {
-
   }
+
   bp::ptree Account::toXml()
   {
     return bp::ptree();
   }
 
-  bool Account::isValidLogin(const std::string aLogin,
-                             const std::string aPass)
+  Privelages::Type Account::getPrivelages()
   {
-    return ((mLogin == aLogin) && (mPassword == aPass));
+    return mPrivelages;
+  }
+
+  bool Account::isLogin( Common::Interfaces::Messages::LoginMessage& aLogin)
+  {
+    std::string login;
+    std::string pass;
+
+    aLogin.getLogin(login, pass);
+
+    return ((mLogin == login) && (mPassword == pass));
   }
 } //namespace Types
 } //namespace Common
