@@ -1,12 +1,12 @@
-#include "Common/Interfaces/Messages/BaseMessage.h"
+#include "Common/Network/Message/BaseMessage.h"
 
 #include <ostream>
 
 #include <boost/property_tree/xml_parser.hpp>
 
-namespace Common {
-namespace Interfaces {
-namespace Messages {
+namespace common {
+namespace network {
+namespace message {
 
   Base::Base(const boost::property_tree::ptree& aMessage) :
     mMessage(aMessage)
@@ -18,7 +18,7 @@ namespace Messages {
   {
   }
 
-  std::string& Base::constructMessage()
+  std::string Base::constructMessage()
   {
     std::ostringstream out;
 
@@ -27,6 +27,6 @@ namespace Messages {
     std::string temp = out.str();
     return temp;
   }
-} //namespace Messages
-} //namespace Interfaces
-} //namespace Common
+} //namespace message
+} //namespace network
+} //namespace common

@@ -21,24 +21,23 @@ INCLUDEPATH += ../include/ \
                ../../Dependencies/unix/casablanca/Release/include
 
 HEADERS += \
-    ../include/Common/Types/Types.h \
-    ../include/Common/Types/CameraFeed.h \
-    ../include/Common/Types/Account.h \
-    ../include/Common/Interfaces/TcpRestServer.h \
-    ../include/Common/Interfaces/TcpRestClient.h \
-    ../include/Common/Interfaces/Messages/Types.h \
-    ../include/Common/Interfaces/Messages/LoginMessage.h \
-    ../include/Common/Interfaces/Messages/CameraMessage.h \
-    ../include/Common/Interfaces/Messages/BaseMessage.h \
-    ../include/Common/Interfaces/Utils/XmlHelpers.h
+    ../include/Common/pod/Camera.h \
+    ../include/Common/pod/Account.h \
+    ../include/Common/Network/RestClient.h \
+    ../include/Common/Network/Message/MessageTypes.h \
+    ../include/Common/Network/Message/LoginMessage.h \
+    ../include/Common/Network/Message/CameraMessage.h \
+    ../include/Common/Network/Message/BaseMessage.h \
+    ../include/Common/Network/Utils/XmlHelpers.h \
+    ../include/Common/Network/RestServer.h
 
 SOURCES += \
-    ../src/Common/Types/CameraFeed.cpp \
-    ../src/Common/Types/Account.cpp \
-    ../src/Common/Interfaces/TcpRestServer.cpp \
-    ../src/Common/Interfaces/TcpRestClient.cpp \
-    ../src/Common/Interfaces/Messages/Types.cpp \
-    ../src/Common/Interfaces/Messages/LoginMessage.cpp \
-    ../src/Common/Interfaces/Messages/CameraMessage.cpp \
-    ../src/Common/Interfaces/Messages/BaseMessage.cpp \
-    ../src/Common/Interfaces/Utils/XmlHelpers.cpp
+    ../src/Common/pod/Camera.cpp \
+    ../src/Common/pod/Account.cpp \
+    ../src/Common/Network/RestServer.cpp \
+    ../src/Common/Network/RestClient.cpp \
+    ../src/Common/Network/Message/MessageTypes.cpp \
+    ../src/Common/Network/Message/LoginMessage.cpp \
+    ../src/Common/Network/Message/CameraMessage.cpp \
+    ../src/Common/Network/Message/BaseMessage.cpp \
+    ../src/Common/Network/Utils/XmlHelpers.cpp

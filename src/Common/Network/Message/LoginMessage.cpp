@@ -1,13 +1,13 @@
-#include "Common/Interfaces/Messages/LoginMessage.h"
+#include "Common/Network/Message/LoginMessage.h"
+
+#include <string>
 
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/xml_parser.hpp>
 
-#include <string>
-
-namespace Common {
-namespace Interfaces {
-namespace Messages {
+namespace common {
+namespace network {
+namespace message {
 
   LoginMessage::LoginMessage(const boost::property_tree::ptree& aMessage) :
     Base(aMessage)
@@ -34,5 +34,5 @@ namespace Messages {
   }
 
 } //namespace Message
-} //namespace Interfaces
+} //namespace network
 } //namespace Common

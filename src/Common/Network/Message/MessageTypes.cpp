@@ -1,11 +1,12 @@
-#include "Common/Interfaces/Messages/Types.h"
+#include "Common/Network/Message/MessageTypes.h"
 
 #include <iostream>
+#include <string>
 
-namespace Common {
-namespace Interfaces {
-namespace Messages {
-namespace Types {
+namespace common {
+namespace network {
+namespace message {
+namespace types {
 
   std::string toString(const Value aType)
   {
@@ -53,7 +54,7 @@ namespace Types {
     return out;
   }
 
-} //end namespace Types
-} //end namespace Messages
-} //end namespace Interfaces
-} //end namespace Common
+} //end namespace types
+} //end namespace message
+} //end namespace network
+} //end namespace common

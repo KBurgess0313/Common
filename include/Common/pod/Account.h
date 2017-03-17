@@ -1,7 +1,7 @@
-#ifndef COMMON_ACCOUNTS_HPP
-#define COMMON_ACCOUNTS_HPP
+#ifndef COMMON_POD_ACCOUNTS_HPP
+#define COMMON_POD_ACCOUNTS_HPP
 
-#include "Common/Interfaces/Messages/LoginMessage.h"
+#include "Common/Network/Message/LoginMessage.h"
 
 #include <string.h>
 #include <vector>
@@ -11,12 +11,12 @@
 
 namespace {
   namespace bp = boost::property_tree;
-} //namespace
+} // end namespace
 
-namespace Common {
-namespace Types {
+namespace common {
+namespace pod {
 
-  namespace Privelages{
+  namespace privelages{
     enum Type {
       INVALID = 0,
       USER,
@@ -35,7 +35,7 @@ namespace Types {
             const std::string& aLastName,
             const std::string& aLogin,
             const std::string& aPassword,
-            const Privelages::Type& aPrivelages,
+            const privelages::Type& aPrivelages,
             std::vector<std::string> aPictures);
 
     Account(const bp::ptree::value_type& accountTree);
@@ -43,9 +43,9 @@ namespace Types {
 
     bp::ptree toXml();
 
-    Privelages::Type getPrivelages();
+    privelages::Type getPrivelages();
 
-    bool isLogin(Common::Interfaces::Messages::LoginMessage& aLogin);
+    bool isLogin(common::network::message::LoginMessage& aLogin);
 
   private:
     std::string mFirstName;
@@ -53,7 +53,7 @@ namespace Types {
     std::string mLogin;
     std::string mPassword;
 
-    Privelages::Type mPrivelages;
+    privelages::Type mPrivelages;
 
     std::vector<std::string> mPictures;
   };
@@ -61,6 +61,6 @@ namespace Types {
   typedef std::shared_ptr<Account> AccountPtr;
   typedef std::vector<AccountPtr> AccountPtrList;
 
-} //namespace Types
-} //namespace Common
-#endif // ACCOUNTS_HPP
+} //namespace pod
+} //namespace common
+#endif // COMMON_POD_ACCOUNTS_HPP

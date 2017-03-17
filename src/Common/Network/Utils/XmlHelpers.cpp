@@ -1,29 +1,32 @@
-#include <Common/Interfaces/Utils/XmlHelpers.h>
+#include <Common/Network/Utils/XmlHelpers.h>
+
+#include <sstream>
 
 #include <boost/property_tree/xml_parser.hpp>
 
-namespace Common {
-namespace Interfaces {
-namespace Utils {
+namespace common {
+namespace network {
+namespace utils {
 
 namespace {
   namespace bp = boost::property_tree;
 }
 
-  Messages::Types::Value getMessageType(bp::ptree aTree)
+  message::types::Value getMessageType(bp::ptree aTree)
   {
-    Messages::Types::Value out = Messages::Types::INVALID;
+    message::types::Value out = message::types::INVALID;
 
     if( aTree.get_child("Message").size() == 1)
     {
       bp::ptree::value_type val = aTree.get_child("Message").front();
 
-      out = Messages::Types::fromString(val.first);
+      out = message::types::fromString(val.first);
     }
 
     return out;
   }
 
+namespace xml {
   bp::ptree requestToXml(web::http::http_request aRequest)
   {
     std::istringstream temp(std::string(aRequest.extract_utf8string().get()));
@@ -42,7 +45,7 @@ namespace {
 
     return std::string(ss.str());
   }
-
+} //end namespace xml
 } //end namespace Utils
-} //end namesapce Interfaces
+} //end namesapce network
 } //end namespace Common

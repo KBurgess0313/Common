@@ -1,11 +1,11 @@
-#include "Common/Types/Account.h"
+#include "Common/pod/Account.h"
 
 #include <iostream>
 
-namespace Common {
-namespace Types {
+namespace common {
+namespace pod {
 
-  namespace Privelages
+  namespace privelages
   {
     Type fromString(const std::string& aType)
     {
@@ -47,7 +47,7 @@ namespace Types {
                    const std::string& aLastName,
                    const std::string& aLogin,
                    const std::string& aPassword,
-                   const Privelages::Type& aPrivelages,
+                   const privelages::Type& aPrivelages,
                    std::vector<std::string> aPictures)  :
       mFirstName(aFirstName),
       mLastName(aLastName),
@@ -63,7 +63,7 @@ namespace Types {
     mLastName(accountTree.second.get<std::string>("LastName")),
     mLogin(accountTree.second.get<std::string>("Login")),
     mPassword(accountTree.second.get<std::string>("Passwd")),
-    mPrivelages(Privelages::fromString(accountTree.second.get<std::string>("Privelages"))),
+    mPrivelages(privelages::fromString(accountTree.second.get<std::string>("Privelages"))),
     mPictures(std::vector<std::string>())
   {
   }
@@ -77,12 +77,12 @@ namespace Types {
     return bp::ptree();
   }
 
-  Privelages::Type Account::getPrivelages()
+  privelages::Type Account::getPrivelages()
   {
     return mPrivelages;
   }
 
-  bool Account::isLogin( Common::Interfaces::Messages::LoginMessage& aLogin)
+  bool Account::isLogin(common::network::message::LoginMessage& aLogin)
   {
     std::string login;
     std::string pass;
@@ -91,5 +91,5 @@ namespace Types {
 
     return ((mLogin == login) && (mPassword == pass));
   }
-} //namespace Types
-} //namespace Common
+} //namespace pod
+} //namespace common

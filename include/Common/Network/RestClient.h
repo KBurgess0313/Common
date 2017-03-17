@@ -1,26 +1,26 @@
-#ifndef COMMON_INTERFACES_TCPRESTCLIENT_H
-#define COMMON_INTERFACES_TCPRESTCLIENT_H
+#ifndef COMMON_NETWORK_RESTCLIENT_H
+#define COMMON_NETWORK_RESTCLIENT_H
 
 #include <cpprest/http_client.h>
 
-namespace Common {
-namespace Interfaces {
+namespace common {
+namespace network {
 
-class TcpRestClient
+class RestClient
 {
 public:
-  TcpRestClient(const web::http::uri& aHostUrl);
+  RestClient(const web::http::uri& aHostUrl);
 
-private:
   web::http::http_response write_get(web::http::http_request aRequest);
   web::http::http_response write_put(web::http::http_request aRequest);
   web::http::http_response write_post(web::http::http_request aRequest);
   web::http::http_response write_delete(web::http::http_request aRequest);
 
+private:
   web::http::client::http_client mClient;
 };
 
-} //end namespace Interfaces
+} //end namespace network
 } //end namespace Common
 
 #endif
